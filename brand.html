@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeBrand</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+<style> 
+  body{background-image: url(images/fone.jpg); } 
+   
+   <div class="header"> 
+    <a href="/" class="logo"> 
+    <img src="images/logo.png" alt=""> 
+    </a> 
+    <div class="nav"> 
+    <a href="#foto" class="link">Карьера</a> 
+    <a href="brand.html" class="link">Кроссовки</a> 
+    <a href="#foto2" class="link">Акцции</a> 
+    </div> 
+   </div> 
+   <style> 
+   { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    } 
+    header { 
+    background-color: #cd091f; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    } 
+    nav { 
+    background-color: #cd091fcd091f; 
+    padding: 10px; 
+    } 
+    nav a { 
+    color: white; 
+    margin: 0 15px; 
+    text-decoration: none; 
+    } 
+    .container { 
+    padding: 20px; 
+    } 
+    .catalog { 
+    
+    display: flex; 
+    flex-wrap: wrap; 
+    height: 1070px; 
+    justify-content: center; 
+    place-items: center; 
+    align-items: center; 
+    
+    } 
+     
+    .product-card { 
+    border:1px solid #ddd; 
+    border-radius: 22px; 
+    margin: 10px; 
+    padding: 20px; 
+    width: 295px; 
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1); 
+    position: absolute 
+    top: 300px; 
+     
+    } 
+    .product-card img { 
+    max-width: 100%; 
+    height: auto; 
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 10px; 
+    } 
+    .product-card h3 { 
+    font-size: 1.2em; 
+    margin: 20px 0; 
+    } 
+    .product-card p { 
+    color: #ff0000; 
+    position: absolute 
+    top: 200px; 
+    } 
+    .product-card .price { 
+    font-size: 0,2%; 
+    color: #e60000; 
+    margin: -14px 0; 
+    position: absolute 
+    } 
+    .product-card button { 
+    background-color: #28a745; 
+    border: none; 
+    color: white; 
+    padding:10px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 10px 0; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    
+    top: 200px; 
+    }  
+    .first-block { 
+    position: absolute 
+    top: 200px; 
+    } 
+     
+    
+   .cart-container { 
+       position: relative; 
+       display: inline-block; 
+       margin-right: 20px; 
+   } 
+    
+   .cart-icon { 
+       font-size: 24px; 
+       cursor: pointer; 
+   } 
+    
+   .cart-modal { 
+       display: none; 
+       position: fixed; 
+       z-index: 1000; 
+       top: 50%; 
+       left: 50%; 
+       transform: translate(-50%, -50%); 
+       background-color: #fff; 
+       padding: 20px; 
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+   } 
+    
+   .cart-modal.open { 
+       display: block; 
+   } 
+    
+   .cart-item { 
+       margin-bottom: 10px; 
+       border-bottom: 1px solid #ddd; 
+       padding-bottom: 10px; 
+   } 
+    
+   .cart-item:last-child { 
+       border-bottom: none; 
+       margin-bottom: 0; 
+   } 
+   </style> 
+ <style> 
+   
+<div class="header"> 
+ <a href="/" class="logo"> 
+ <img src="images/logo.png" alt=""> 
+ </a> 
+ <div class="nav"> 
+ <a href="#foto" class="link">Карьера</a> 
+ <a href="brand.html" class="link">Кроссовки</a> 
+ <a href="#foto2" class="link">Акцции</a> 
+ </div> 
+</div> 
+<style> 
+{ 
+ font-family: Arial, sans-serif; 
+ margin: 0; 
+ padding: 0; 
+ } 
+ header { 
+ background-color: #cd091f; 
+ color: white; 
+ padding: 10px 20px; 
+ text-align: center; 
+ } 
+ nav { 
+ background-color: #cd091fcd091f; 
+ padding: 10px; 
+ } 
+ nav a { 
+ color: white; 
+ margin: 0 15px; 
+ text-decoration: none; 
+ } 
+ .container { 
+ padding: 20px; 
+ } 
+ .catalog { 
+ 
+ display: flex; 
+ flex-wrap: wrap; 
+ height: 1070px; 
+ justify-content: center; 
+ place-items: center; 
+ align-items: center; 
+ 
+ } 
+  
+ .product-card { 
+ border:1px solid #ddd; 
+ border-radius: 22px; 
+ margin: 10px; 
+ padding: 20px; 
+ width: 295px; 
+ box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1); 
+ position: absolute 
+ top: 300px; 
+  
+ } 
+ .product-card img { 
+ max-width: 100%; 
+ height: auto; 
+ border-bottom: 1px solid #ddd; 
+ padding-bottom: 10px; 
+ } 
+ .product-card h3 { 
+ font-size: 1.2em; 
+ margin: 20px 0; 
+ } 
+ .product-card p { 
+ color: #ff0000; 
+ position: absolute 
+ top: 200px; 
+ } 
+ .product-card .price { 
+ font-size: 0,2%; 
+ color: #e60000; 
+ margin: -14px 0; 
+ position: absolute 
+ } 
+ .product-card button { 
+ background-color: #28a745; 
+ border: none; 
+ color: white; 
+ padding:10px; 
+ text-align: center; 
+ text-decoration: none; 
+ display: inline-block; 
+ font-size: 16px; 
+ margin: 10px 0; 
+ cursor: pointer; 
+ border-radius: 5px; 
+ 
+ top: 200px; 
+ }  
+ .first-block { 
+ position: absolute 
+ top: 200px; 
+ } 
+  
+ 
+.cart-container { 
+    position: relative; 
+    display: inline-block; 
+    margin-right: 20px; 
+} 
+ 
+.cart-icon { 
+    font-size: 24px; 
+    cursor: pointer; 
+} 
+ 
+.cart-modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+} 
+ 
+.cart-modal.open { 
+    display: block; 
+} 
+ 
+.cart-item { 
+    margin-bottom: 10px; 
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 10px; 
+} 
+ 
+.cart-item:last-child { 
+    border-bottom: none; 
+    margin-bottom: 0; 
+} 
+</style> 
+    <body>
+    </body>
+    </style>
+</head>
+<body>
+  <div class="header">
+    <a href="/" class="logo">
+     <img src="images/logo.png" alt="">
+    </a>
+   
+    <div class="nav">
+     <a href="#foto" class="link">Карьера</a>
+     <a href="brand.html" class="link">Кроссовки</a>
+     <a href="#foto2" class="link">Акцции</a>
+    </div>
+   </div>
+   
+<div class="header">
+    <a href="/" class="logo">
+        <img src="images/logo.png" alt="">
+    </a>
+
+    <div class="nav">
+        <a href="#foto" class="link">Карьера</a>
+        <a href="brand.html" class="link">Кроссовки</a>
+        <a href="#foto2" class="link">Акцции</a>
+    </div>
+    
+    <!-- Cart Icon and Container -->
+    <div class="cart-container">
+        <span class="cart-icon" onclick="toggleCart()">🛒</span>
+        <div id="cartModal" class="cart-modal">
+            <h2>Корзина</h2>
+            <div id="cartItems" class="cart-items"></div>
+            <button onclick="closeCart()">Закрыть</button>
+            <button onclick="redirectToCheckout()">Оформить заказ</button> <!-- Changed button text and function -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="catalog">
+      <div class="container"> 
+        <div class="catalog"> 
+            <!-- Product Cards --> 
+            <div class="product-card"> 
+                <img src="images/shoe1.jpg" alt="Кроссовки Nike Air Max"> 
+                <h3>Кроссовки Nike Air Force 1</h3> 
+                <div class="price">7 500 руб.</div> 
+                <button onclick="addToCart('Кроссовки Nike Air Force 1', 7500)">Купить</button> 
+            </div> 
+     
+            <div class="product-card"> 
+                <img src="images/shoe7.jpg" alt="Кроссовки Adidas Ultra Boost">
+                <h3>Кроссовки The Powerpuff Girls X Dunk Low Pro SB Bubbles</h3> 
+            <div class="price">8 000 руб.</div> 
+            <button onclick="addToCart('Кроссовки The Powerpuff Girls X Dunk Low Pro SB Bubbles', 8000)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe8.jpg" alt="Кроссовки Puma Ignite"> 
+            <h3>Кроссовки Puma Ignite</h3> 
+            <div class="price">6,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки Puma Ignite', 6500)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe9.jpg" alt="Кроссовки Puma Ignite"> 
+            <h3>Кроссовки CAMPUS 00S</h3> 
+            <div class="price">6,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки CAMPUS 00S', 6500)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe5.jpg" alt="Кроссовки Puma Ignite"> 
+            <h3>Кроссовки The Powerpuff Girls X Dunk Low Pro SB Buttercup</h3> 
+            <div class="price">19,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки The Powerpuff Girls X Dunk Low Pro SB Buttercup', 19500)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe6.jpg" alt="Кроссовки NIKE Supreme X Dunk Low SB Rammellzee"> 
+            <h3>Кроссовки NIKE Supreme X Dunk Low SB Rammellzee</h3> 
+            <div class="price">22,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки NIKE Supreme X Dunk Low SB Rammellzee', 22500)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe3.jpg" alt="Кроссовки Puma Ignite"> 
+            <h3>Кроссовки Puma Ignite</h3> 
+            <div class="price">6,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки Puma Ignite', 6500)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe4.jpg" alt="Кроссовки Termit Ocean 3.0"> 
+            <h3>Кроссовки Termit Ocean 3.0</h3> 
+            <div class="price">6,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки Termit Ocean 3.0', 6500)">Купить</button> 
+        </div> 
+ 
+        <div class="product-card"> 
+            <img src="images/shoe10.jpg" alt="Кроссовки ULTRABOOST 1.0"> 
+            <h3>Кроссовки ULTRABOOST 1.0</h3> 
+            <div class="price">6,500 руб.</div> 
+            <button onclick="addToCart('Кроссовки ULTRABOOST 1.0', 6500)">Купить</button> 
+        </div> 
+    </div> 
+</div> 
+ 
+    </div>
+</div>
+<script>
+  // Function to add items to cart
+  function addToCart(productName, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name: productName, price: price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartModal();
+  }
+
+  // Function to update cart modal
+  function updateCartModal() {
+      let cartItemsElement = document.getElementById('cartItems');
+      cartItemsElement.innerHTML = '';
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      cart.forEach(item => {
+          let itemElement = document.createElement('div');
+          itemElement.classList.add('cart-item');
+          itemElement.innerHTML = `
+              <p><strong>${item.name}</strong> - ${item.price} руб.</p>
+          `;
+          cartItemsElement.appendChild(itemElement);
+      });
+
+      document.getElementById('cartModal').classList.add('open');
+  }
+
+  // Function to toggle cart modal visibility
+  function toggleCart() {
+      document.getElementById('cartModal').classList.toggle('open');
+  }
+
+  // Function to close cart modal
+  function closeCart() {
+      document.getElementById('cartModal').classList.remove('open');
+  }
+
+  // Function to redirect to checkout page
+  function redirectToCheckout() {
+      // Redirect to the checkout page
+      window.location.href = 'zakaz.html';
+  }
+</script>
+</body>
+</html>

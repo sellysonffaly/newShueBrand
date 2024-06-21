@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление Заказа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .order-summary {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .order-summary h2 {
+            margin-top: 0;
+        }
+        .order-summary .product {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-summary .product:last-child {
+            border-bottom: none;
+        }
+        .order-summary .product .remove-btn {
+            color: #e60000;
+            cursor: pointer;
+        }
+        .order-summary .total {
+            text-align: right;
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #e60000;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Оформление Заказа</h1>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Адрес доставки</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Способ оплаты</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="credit-card">Кредитная карта</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank-transfer">Банковский перевод</option>
+                </select>
+            </div>
+            <div class="order-summary" id="orderSummary">
+                <h2>Обзор заказа</h2>
+                <!-- Product details will be dynamically added here -->
+                <div class="total">
+                    Итого: <span id="totalAmount">0</span> руб.
+                </div>
+            </div>
+            <button type="submit">Оформить заказ</button>
+        </form>
+    </div>
+
+    <div class="popup" id="popup">
+        Заказ успешно оформлен!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve cart items from localStorage
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Display cart items in the order summary
+            let orderSummary = document.getElementById('orderSummary');
+
+            function updateCartDisplay() {
+                let totalAmount = 0;
+
+                let productHtml = cartItems.map(item => `
+                    <div class="product">
+                        <span>${item.name}</span>
+                        <span>1 x ${item.price} руб.</span>
+                        <span class="remove-btn" data-name="${item.name}">Удалить</span>
+                    </div>
+                `).join('');
+
+                orderSummary.innerHTML = `
+                    <h2>Обзор заказа</h2>
+                    ${productHtml}
+                    <div class="total">
+                        Итого: <span id="totalAmount">${calculateTotal()}</span> руб.
+                    </div>
+                `;
+
+                // Add event listeners to remove buttons
+                let removeButtons = document.querySelectorAll('.remove-btn');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        let itemName = button.getAttribute('data-name');
+                        removeFromCart(itemName);
+                    });
+                });
+            }
+
+            function calculateTotal() {
+                let total = 0;
+                cartItems.forEach(item => {
+                    total += item.price;
+                });
+                return total.toLocaleString('ru-RU');
+            }
+
+            function removeFromCart(name) {
+                cartItems = cartItems.filter(item => item.name !== name);
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                updateCartDisplay();
+            }
+
+            updateCartDisplay();
+
+            // Handle form submission
+            let orderForm = document.getElementById('orderForm');
+            orderForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Example: Submit form data to server (not implemented here)
+                // Simulate form submission success
+
+                // Show popup
+                let popup = document.getElementById('popup');
+                popup.style.display = 'block';
+
+                // Redirect to index.html after 3 seconds
+                setTimeout(function() {
+                    // Clear localStorage
+                    localStorage.removeItem('cart');
+                    // Redirect to index.html
+                    window.location.href = 'index.html';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
